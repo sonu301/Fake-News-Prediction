@@ -21,6 +21,8 @@ def predict():
         query_text = result['article']
         print(query_text)
         query = get_all_query(query_title, query_author, query_text)
+        query=remove_punctuation_stopwords_lemma(query)
+        
         user_input = {'query':query}
         pred = pipeline.predict(query)
         
